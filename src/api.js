@@ -8,7 +8,7 @@ const router=express.Router()
 
 router.get('/', (req,res)=>{
   
-    res.send('Hello world 2')
+    res.send(res.body)
 
 })
 
