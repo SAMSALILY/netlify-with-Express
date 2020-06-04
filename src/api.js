@@ -6,11 +6,7 @@ const serverless=require('serverless-http')
 
 const router=express.Router()
 
-router.get('/', (req,res)=>{
-  
-    res.send(res.body)
 
-})
 
 
 app.use('/.netlify/functions/api', router)
@@ -43,6 +39,11 @@ req.end(function (res) {
     data.push(...res.body)
 });
 
+router.get('/', (req,res)=>{
+  
+    res.send(data)
+
+})
 router.get('/ICAO/:codeIcao', (req,res)=>{
      //console.log(data)
     const aircode = req.params.codeIcao 
@@ -52,7 +53,15 @@ router.get('/ICAO/:codeIcao', (req,res)=>{
         res.send(d_Icao.map(i=> `Compagnie :${i.name} / Code IATA :${i.iata_code}`))
   
 })
-
+router.get('/IATA/:codeIata', (req,res)=>{
+    //console.log(data)
+   const aircode = req.params.codeIata 
+ 
+   const d_Iata = data.filter(item=> item.iata_code===aircode );
+   //console.log(d)
+       res.send(d_Iata.map(i=> `Compagnie :${i.name} / Code IATA :${i.icao_code}`))
+ 
+})
 
 
 
