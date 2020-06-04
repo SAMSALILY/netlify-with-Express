@@ -1,38 +1,29 @@
 const express=require('express')
 var unirest = require("unirest");
 const app=express()
-
-const serverless=require('serverless-http')
-
 const router=express.Router()
 
-
-
+const serverless=require('serverless-http')
 
 app.use('/.netlify/functions/api', router)
 
 module.exports.handler=serverless(app)
 
-
-
-
-//app.use(express.json())
-
-
-////////////////////////////
 const data=[];
 
 app.use('/.netlify/functions/api', router)
 var req = unirest("GET", "https://iata-and-icao-codes.p.rapidapi.com/airlines");
 
-req.headers({
+req
+.headers({
 	"x-rapidapi-host": "iata-and-icao-codes.p.rapidapi.com",
 	"x-rapidapi-key": "b08f5f8291mshbc3dab549804e9cp149e78jsnc9e23f00383d",
 	"useQueryString": true
-});
+})
 
 
-req.end(function (res) {
+
+.end(function (res) {
 	if (res.error) throw new Error(res.error);
 
     //console.log(res.body);
