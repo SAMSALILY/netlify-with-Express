@@ -32,7 +32,7 @@ req
 
 router.get('/', (req,res)=>{
   
-    res.send(data)
+    res.send("sdsssssssssss")
 
 })
 router.get('/ICAO/:codeIcao', (req,res)=>{
