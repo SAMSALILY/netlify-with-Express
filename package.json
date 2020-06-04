@@ -12,6 +12,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "netlify-lambda": "^1.6.3",
-    "serverless-http": "^2.5.0"
+    "serverless-http": "^2.5.0",
+    "unirest": "^0.6.0"
   }
 }
